@@ -1,0 +1,20 @@
+{
+  "name": "be-parsing",
+  "version": "0.0.0",
+  "description": "Parse html and attached the parsed data to the DOM element",
+  "homepage": "https://github.com/bahrus/be-parsing#readme",
+  "bugs": {
+    "url": "https://github.com/bahrus/be-parsing/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahrus/be-parsing.git"
+  },
+  "license": "MIT",
+  "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
+  "type": "module",
+  "main": "emc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
