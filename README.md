@@ -26,10 +26,18 @@ So what this could look like is:
     <option  value="">Please select a pet</option>
     <option 
       itemprop=animal 
-      itempropmap="data-scientific-classification: scienetificCalculation" 
+      itempropmap="
+        scientificCalculation,
+        value:commonName,
+        binomialName
+      " 
       itemscope 
       value="cat" 
-      data-scientific-classification='{"Kingdom": "Animalia", "Phylum": "Chordata"}'>
+      data-scientific-classification='{
+            "Kingdom": "Animalia", 
+            "Phylum": "Chordata"
+      }'
+      data-binomial-name='Felis catus'>
         <span class="icon" 
           aria-hidden="true"
         itemprop="emoji>🐱</span>
