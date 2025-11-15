@@ -4,7 +4,7 @@ Parse html and attach the parsed data to the DOM element
 
 With customizable dropdowns, it is worth taking a look at how to "customize" managing the data that drives the dropdowns.
 
-I've found it always kind of a nuisance that the option tag only supports value and text.  
+I've always found it kind of annoying that the option tag only supports value and text.  
 
 I find myself often having to do lookups from the value (always a string) to the item that corresponded to that option, 
 because it contains much additional useful information.
@@ -12,8 +12,13 @@ because it contains much additional useful information.
 Since customizable dropdowns can display much more information that may bind from that information, 
 one way to handle this is to encode all that information in the HTML stream used to populate the dropdowns.  
 
-Yes, yes, ~99% of dropdowns are derived from JSON, but I think we should take a look at supporting the other 1%, 
-because in theory it should perform better, especially with customizable dropdowns, to use HTML, so maybe that 1% could grow to 5%!
+Yes, yes, ~99% of dropdowns are derived from JSON, but I think, as a developer community, we should ask ourselves if we aren't contributing to global warming by doing this.
+
+In theory, and in maybe 90% of in practice, it should perform better to send down the values of the dropdown as HTML, even when making fetch calls to retrieve the content. Especially with customizable dropdowns.
+
+But wouldn't that just be pouring gasoline on fire, as far as addressing the annoying issue I mentioned earlier (lack of access to the data behind the dropdown presentation).
+
+We solve this by tapping into microdata, and extending it, with absolutely no guilt, because yours truly has proposed these veery extensions, so the party responsible for looking the other way at this global warming disaster (the browser vendors, who have allowed that proposal to collect dust) are the ones who should feel guilty, not us socially conscious developers!
 
 So what this could look like is:
 
