@@ -26,11 +26,11 @@ So what this could look like is:
 <select itemscope=animals id="pet-select"
     itempropmap="
         animal:
-            scientificCalculation as Object, 
-            value:key as String, 
-            binomialName as String, 
-            population:noOfCatsOnPlanetEarth as Number;
-            ariaHidden as Boolean, 
+            scientificCalculation to Object,
+            value:key to String, 
+            binomialName to String, 
+            population:noOfCatsOnPlanetEarth to Number;
+            ariaHidden to Boolean, 
     "   
     be-parsing>
     <button>
@@ -40,7 +40,6 @@ So what this could look like is:
     <option  value="">Please select a pet</option>
     <option 
       itemprop=animal 
-
       itemscope 
       value="cat" 
       data-scientific-classification='{
