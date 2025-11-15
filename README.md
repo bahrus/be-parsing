@@ -1,5 +1,6 @@
 # be-parsing
-Parse html and attached the parsed data to the DOM element
+
+Parse html and attach the parsed data to the DOM element
 
 With customizable dropdowns, it is worth taking a look at how to "customize" managing the data that drives the dropdowns.
 
