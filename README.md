@@ -18,7 +18,7 @@ In theory, and in maybe 90% of in practice, it should perform better to send dow
 
 But wouldn't that just be pouring gasoline on fire, as far as addressing the annoying issue I mentioned earlier (lack of access to the data behind the dropdown presentation).
 
-We solve this by tapping into microdata, and extending it, with absolutely no guilt, because yours truly has proposed these veery extensions, so the party responsible for looking the other way at this global warming disaster (the browser vendors, who have allowed that proposal to collect dust) are the ones who should feel guilty, not us socially conscious developers!
+We solve this by tapping into microdata, and extending it, with absolutely no guilt, because yours truly has proposed these very extensions, so the party responsible for looking the other way at this global warming disaster incurred by not supporting embedding data in HTML (i.e. the browser vendors, who have allowed that proposal to just sit there collecting dust) are the ones who should feel guilty, not us socially conscious developers!
 
 So what this could look like is:
 
