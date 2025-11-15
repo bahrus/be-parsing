@@ -18,7 +18,7 @@ In theory, and in maybe 90% of in practice, it should perform better to send dow
 
 But wouldn't that just be pouring gasoline on fire, as far as addressing the annoying issue I mentioned earlier (lack of access to the data behind the dropdown presentation).
 
-We solve this by tapping into microdata, and extending it, with absolutely no guilt, because yours truly [has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so the party responsible for looking the other way at this global warming disaster incurred by not supporting embedding data in HTML (i.e. the browser vendors, who have allowed that proposal to just sit there collecting dust) are the ones who should feel guilty, not us socially conscious developers!
+We solve this by tapping into microdata, and extending that long neglected standard, with absolutely no guilt, because yours truly [has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so the party responsible for looking the other way at this global warming disaster incurred by not supporting embedding data in HTML (i.e. the browser vendors, who have allowed that proposal to just sit there collecting dust) are the ones who should feel guilty, not us socially conscious developers!
 
 So what this could look like is:
 
@@ -26,10 +26,13 @@ So what this could look like is:
 <select itemscope=animals id="pet-select"
     itempropmap="
         animal:
-            scientificCalculation to Object,
+            ?.dataset:{
+                scientificCalculation to Object,
+                
+                binomialName to String, 
+                population:noOfCatsOnPlanetEarth to Number;
+            }
             value:key to String, 
-            binomialName to String, 
-            population:noOfCatsOnPlanetEarth to Number;
             ariaHidden to Boolean, 
     "   
     be-parsing>
@@ -51,7 +54,6 @@ So what this could look like is:
             "Genus":  "Felis",
             "Species":	"F. catus"
       }'
-      aria-checked=true
       data-binomial-name='Felis catus'
       data-population=600_000_000
     >
