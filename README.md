@@ -19,7 +19,14 @@ So what this could look like is:
 
 ```html
 <select itemscope=animals id="pet-select"
-    itempropmap="animal|{scientificCalculation}, value:key, binomialName;"    
+    itempropmap="
+        animal:
+            scientificCalculation as Object, 
+            value:key as String, 
+            binomialName as String, 
+            population:noOfCatsOnPlanetEarth as Number;
+            ariaHidden as Boolean, 
+    "   
     be-parsing>
     <button>
         <selectedcontent></selectedcontent>
@@ -28,10 +35,7 @@ So what this could look like is:
     <option  value="">Please select a pet</option>
     <option 
       itemprop=animal 
-      itemprop-map="animal:{scientificCalculation, value:key, binomialName}
-        "animal": 
-        
-      ' 
+
       itemscope 
       value="cat" 
       data-scientific-classification='{
@@ -43,7 +47,9 @@ So what this could look like is:
             "Genus":  "Felis",
             "Species":	"F. catus"
       }'
+      aria-checked=true
       data-binomial-name='Felis catus'
+      data-population=600_000_000
     >
         <span class="icon" 
           aria-hidden="true"
@@ -88,8 +94,8 @@ What this does:
 
 1. Goes through all the child elements to parse, looking for microdata attributes.  
 2. Adds a deep mutation observer, but ignores elements inside an itemscope sub-child
-3. Uses JSON.parse on all the data-* attributes.  If element is a span, get the textContent for the value of the prop.  If data element, use JSON.parse of the value attribute.
-4. Uses 
+3.  Assigns value to "ish" property of adorned element.
+
 
 Assign each element
 
