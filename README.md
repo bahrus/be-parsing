@@ -37,10 +37,11 @@ So what this could look like is:
             "Kingdom": "Animalia", 
             "Phylum": "Chordata"
       }'
-      data-binomial-name='Felis catus'>
+      data-binomial-name='Felis catus'
+    >
         <span class="icon" 
           aria-hidden="true"
-        itemprop="emoji>🐱</span>
+        itemprop="emoji">🐱</span>
         <span itemprop="displayName" class="option-label">Cat</span>
     </option>
     <option value="dog">
