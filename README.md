@@ -11,7 +11,7 @@ because it contains much additional useful information.
 
 Since customizable dropdowns can display a richer user interface, it is quite likely we will see more of the data fields that are relevant to the dropdown. This provides ample opportunity to embed the data used to generate the list of options in a way that can be easily reverse engineered from the HTML markup.
 
-We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates, as  [yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013).
+We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates.  [Yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so until the platform suggests / implements a better alternative, 
 
 So what this could look like is:
 
@@ -80,17 +80,24 @@ So what this could look like is:
             aria-hidden="true">🐶</span>
         <span class="option-label" itemprop=displayName>Dog</span>
     </option>
-    <option value="hamster">
-        <span class="icon" aria-hidden="true">🐹</span><span class="option-label">Hamster</span>
-    </option>
-    <option value="chicken">
-        <span class="icon" aria-hidden="true">🐔</span><span class="option-label">Chicken</span>
-    </option>
-    <option value="fish">
-        <span class="icon" aria-hidden="true">🐟</span><span class="option-label">Fish</span>
-    </option>
-    <option value="snake">
-        <span class="icon" aria-hidden="true">🐍</span><span class="option-label">Snake</span>
+    <option
+        itemprop=animal
+        itempropmap=animal-map
+        itemscope 
+        value="hamster"
+        data-scientific-classification='{
+            "Kingdom":	    "Animalia",
+            "Phylum":	    "Chordata",
+            "Class":	    "Mammalia",
+            "Order":	    "Rodentia",
+            "Family":	    "Cricetidae",
+            "Subfamily":	"Cricetinae"
+        }'
+    >
+        <span class="icon"  
+            itemprop=emoji 
+            aria-hidden="true">🐹</span>
+        <span class="option-label" itemprop=displayName>Hamster</span>
     </option>
 </select>
 ```
@@ -109,6 +116,7 @@ So the cat "option" would be assigned the following value:
 ```JavaScript
 oOption.ish = {
     animal: "Cat",
+    key: 'cat',
     emoji: "🐱",
     displayName: "Cat",
     taxonomy: {
