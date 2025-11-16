@@ -25,7 +25,7 @@ So what this could look like is:
         "data-binomial-name": "species",
         "data-population": {
             "mapsTo": "totalCount",
-            "instanceOf" "Number"
+            "instanceOf": "Number"
         },
         "value": "key"
     }
