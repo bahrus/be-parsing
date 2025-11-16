@@ -95,6 +95,9 @@ So what this could look like is:
 </select>
 ```
 
+> [!NOTE]
+>  Editing JSON as shown above is error-prone.  To enable JSON syntax highlighting, consider installing this [vs-code plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is using vscode.  Plans for a Ziad plugin are being contemplated [TODO]
+
 What this does:
 
 1. Goes through all the child elements to parse, looking for microdata attributes.  
