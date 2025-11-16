@@ -106,6 +106,8 @@ So the cat "option" would be assigned the following value:
 ```JavaScript
 oOption.ish = {
     animal: "Cat",
+    emoji: "🐱",
+    displayName: "Cat",
     taxonomy: {
         Kingdom: "Animalia", 
         Phylum: "Chordata",
