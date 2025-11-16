@@ -2,7 +2,7 @@
 
 Parse html and attach the parsed data to the DOM element
 
-With customizable dropdowns, it is worth taking a look at how to "customize" managing the data that drives the dropdowns.
+With customizable dropdowns, it is worth taking a look at how to "customize" managing the data that drives the dropdown options.
 
 I've always found it kind of annoying that the option tag only supports value and text.  
 
@@ -16,19 +16,21 @@ We solve this by tapping into microdata, and extending that long neglected stand
 So what this could look like is:
 
 ```html
-<select itemscope=animals id="pet-select"
-    itempropmap="
-        animal: {
-            dataset:{
-                scientificCalculation to Object,
-                binomialName to String, 
-                population:noOfCatsOnPlanetEarth to Number;
-            },
-            value:key to String, 
-            ariaHidden to Boolean, 
-        }
-
-    "   
+<script type=itempropmap id=animal-map>
+    {
+        "data-scientific-classification": {
+            "mapsTo": "taxonomy", 
+            "instanceOf": "Object"
+        },
+        "data-binomial-name": "species",
+        "data-population": {
+            "mapsTo": "totalCount",
+            "instanceOf" "Number"
+        },
+        "value": "key"
+    }
+</script>
+<select itemscope=animals id="pet-select"  
     be-parsing>
     <button>
         <selectedcontent></selectedcontent>
@@ -36,7 +38,8 @@ So what this could look like is:
 
     <option  value="">Please select a pet</option>
     <option 
-      itemprop=animal 
+      itemprop=animal
+      itempropmap=animal-map
       itemscope 
       value="cat" 
       data-scientific-classification='{
@@ -56,7 +59,9 @@ So what this could look like is:
         itemprop="emoji">🐱</span>
         <span itemprop="displayName" class="option-label">Cat</span>
     </option>
-    <option itemprop=animal 
+    <option 
+        itemprop=animal
+        itempropmap=animal-map
         itemscope
         value="dog"
         data-scientific-classification='{
