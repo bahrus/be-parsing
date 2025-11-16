@@ -43,13 +43,13 @@ So what this could look like is:
       itemscope 
       value="cat" 
       data-scientific-classification='{
-            "Kingdom": "Animalia", 
-            "Phylum": "Chordata",
-            "Class": "Mammalia",
-            "Order": "Carnivora",
-            "Family": "Felidae",
-            "Genus":  "Felis",
-            "Species":	"F. catus"
+        "Kingdom": "Animalia", 
+        "Phylum": "Chordata",
+        "Class": "Mammalia",
+        "Order": "Carnivora",
+        "Family": "Felidae",
+        "Genus":  "Felis",
+        "Species":	"F. catus"
       }'
       data-binomial-name='Felis catus'
       data-population=600_000_000

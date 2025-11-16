@@ -1,7 +1,15 @@
 {
   "name": "be-parsing",
   "version": "0.0.0",
-  "description": "Parse html and attached the parsed data to the DOM element",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements",
+    "enhancement",
+    "behavior"
+  ],
+  "description": "Parse html and attach the parsed data to the DOM element",
   "homepage": "https://github.com/bahrus/be-parsing#readme",
   "bugs": {
     "url": "https://github.com/bahrus/be-parsing/issues"
@@ -13,8 +21,28 @@
   "license": "MIT",
   "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
   "type": "module",
-  "main": "emc.js",
+  "main": "be-parsing.js",
+  "module": "be-parsing.js",
+  "files": [
+    "*.js",
+    "./ts-refs/be-parsing/types.d.ts",
+    "README.md"
+  ],
+  "types": "./ts-refs/be-parsing/types.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "serve": "node ./node_modules/spa-ssi/serve.js",
+    "safari": "npx playwright wk http://localhost:8000",
+    "update": "ncu -u && npm install"
+  },
+  "dependencies": {
+    "be-enhanced": "0.0.189",
+    "be-hive": "0.0.267",
+    "mount-observer": "0.0.105",
+    "trans-render": "0.0.960"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "spa-ssi": "0.0.23"
   }
 }
