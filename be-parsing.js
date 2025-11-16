@@ -5,3 +5,22 @@ import {dispatchEvent as de} from 'trans-render/positractions/dispatchEvent.js';
 /** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
 /** @import {Actions, PAP, AllProps, AP, BAP} from './ts-refs/be-parsing/types' */;
 
+/**
+ * @implements {Actions}
+ * 
+ */
+class BeParsing extends BE {
+    /**
+     * @type {BEConfig<BAP, Actions & IEnhancement>}
+     */
+    static config = {
+        propInfo: {
+            ...propInfo,
+        },
+        positractions: [resolved, rejected],
+    }
+
+    de = de;
+}
+await BeParsing.bootUp();
+export { BeParsing }
