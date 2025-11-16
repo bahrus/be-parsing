@@ -9,10 +9,7 @@ I've always found it kind of annoying that the option tag only supports value an
 I find myself often having to do lookups from the value (always a string) to the item that corresponded to that option, 
 because it contains much additional useful information.
 
-Since customizable dropdowns can display much more information that may bind from that information, 
-one way to handle this is to encode all that information in the HTML stream used to populate the dropdowns.  
-
-Yes, yes, ~99% of dropdowns are derived from JSON, but I think, as a developer community, we should ask ourselves if we aren't contributing to global warming by doing this.
+Since customizable dropdowns can display a richer user interface, it is quite likely we will see more of the data fields that are relevant to the dropdown. This provides ample opportunity to embed the data used to generate the list of options in a way that can be easily reverse engineered from the HTML markup.
 
 In theory, and in maybe 90% of in practice, it should perform better to send down the values of the dropdown as HTML, even when making fetch calls to retrieve the content. Especially with customizable dropdowns.
 
@@ -25,15 +22,16 @@ So what this could look like is:
 ```html
 <select itemscope=animals id="pet-select"
     itempropmap="
-        animal:
-            ?.dataset:{
+        animal: {
+            dataset:{
                 scientificCalculation to Object,
-                
                 binomialName to String, 
                 population:noOfCatsOnPlanetEarth to Number;
-            }
+            },
             value:key to String, 
             ariaHidden to Boolean, 
+        }
+
     "   
     be-parsing>
     <button>
