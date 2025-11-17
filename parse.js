@@ -1,3 +1,5 @@
+import {upShadowSearch} from 'mount-observer/upShadowSearch.js';
+
 /** @import {Actions, PAP, AllProps, AP, BAP, ItemPropMap} from './ts-refs/be-parsing/types' */;
 
 /** @type {WeakMap<HTMLElement, any} */
@@ -13,12 +15,13 @@ export function parse(el, obj = {}){
     }
     const itempropmap = el.getAttribute('itempropmap');
     if(itempropmap){
-        const el = document.getElementById(itempropmap);
-        if(!el) throw 500;
-        if(!parsedItempropmaps.has(el)){
-            parsedItempropmaps.set(el, JSON.parse(el.innerHTML));
+        //const el = document.getElementById(itempropmap);
+        const jsonEl = upShadowSearch(el, itempropmap)
+        if(!jsonEl) throw 500;
+        if(!parsedItempropmaps.has(jsonEl)){
+            parsedItempropmaps.set(jsonEl, JSON.parse(el.innerHTML));
         }
-        const parsed =/** @type {ItemPropMap} */  (parsedItempropmaps.get(el));
+        const parsed =/** @type {ItemPropMap} */  (parsedItempropmaps.get(jsonEl));
         for(const key in parsed){
             if(!el.hasAttribute(key)) continue;
             const attr = el.getAttribute(key);
@@ -47,7 +50,7 @@ export function parse(el, obj = {}){
         }
         const children = Array.from(el.children);
         for(const child of children){
-            if(child.hasAttribute('itemscope')) continue;
+            const objToPass = child.hasAttribute('itemscope') ? {} : obj;
             parse(child, obj);
         }
     }
