@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 1</title>
+    <!-- #include virtual="/imports.html" -->
+</head>
+
+<body>
+    <script type=itempropmap id=animal-map>
+    {
+        "data-scientific-classification": {
+            "mapsTo": "taxonomy", 
+            "instanceOf": "Object"
+        },
+        "data-binomial-name": "species",
+        "data-population": {
+            "mapsTo": "totalCount",
+            "instanceOf": "Number"
+        },
+        "value": "key"
+    }
+    </script>
+    <select itemscope=animals id="pet-select">
+        <button>
+            <selectedcontent></selectedcontent>
+        </button>
+
+        <option value="">Please select a pet</option>
+        <option itemprop=animal itempropmap=animal-map itemscope value="cat" data-scientific-classification='{
+        "Kingdom": "Animalia", 
+        "Phylum": "Chordata",
+        "Class": "Mammalia",
+        "Order": "Carnivora",
+        "Family": "Felidae",
+        "Genus":  "Felis",
+        "Species":	"F. catus"
+      }' data-binomial-name='Felis catus' data-population=600_000_000>
+            <span class="icon" aria-hidden="true" itemprop="emoji">🐱</span>
+            <span itemprop="displayName" class="option-label">Cat</span>
+        </option>
+        <option itemprop=animal itempropmap=animal-map itemscope value="dog" data-scientific-classification='{
+            "Kingdom":	"Animalia",
+            "Phylum":	"Chordata",
+            "Class":	"Mammalia",
+            "Order":	"Carnivora",
+            "Family":	"Canidae",
+            "Genus":	"Canis",    
+            "Species":	"C. familiaris"
+        }' data-binomial-name='Canis familiaris'>
+            <span class="icon" itemprop=emoji aria-hidden="true">🐶</span>
+            <span class="option-label" itemprop=displayName>Dog</span>
+        </option>
+        <option itemprop=animal itempropmap=animal-map itemscope value="hamster" data-scientific-classification='{
+            "Kingdom":	    "Animalia",
+            "Phylum":	    "Chordata",
+            "Class":	    "Mammalia",
+            "Order":	    "Rodentia",
+            "Family":	    "Cricetidae",
+            "Subfamily":	"Cricetinae"
+        }'>
+            <span class="icon" itemprop=emoji aria-hidden="true">🐹</span>
+            <span class="option-label" itemprop=displayName>Hamster</span>
+
+        </option>
+        <template be-parsing></template>
+    </select>
+
+    <script type=module>
+        import '/emc.js';
+    </script>
+</body>
+
+</html>

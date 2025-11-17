@@ -6,7 +6,7 @@ import {upShadowSearch} from 'mount-observer/upShadowSearch.js';
 const parsedItempropmaps = new WeakMap();
 /**
  * 
- * @param {HTMLElement} el 
+ * @param {Element} el 
  */
 export function parse(el, obj = {}){
     const itemprop = el.getAttribute('itemprop');
