@@ -19,7 +19,7 @@ export function parse(el, obj = {}){
         const jsonEl = upShadowSearch(el, itempropmap)
         if(!jsonEl) throw 500;
         if(!parsedItempropmaps.has(jsonEl)){
-            parsedItempropmaps.set(jsonEl, JSON.parse(el.innerHTML));
+            parsedItempropmaps.set(jsonEl, JSON.parse(jsonEl.innerHTML));
         }
         const parsed =/** @type {ItemPropMap} */  (parsedItempropmaps.get(jsonEl));
         for(const key in parsed){
@@ -48,10 +48,12 @@ export function parse(el, obj = {}){
                     }
             }
         }
-        const children = Array.from(el.children);
-        for(const child of children){
-            const objToPass = child.hasAttribute('itemscope') ? {} : obj;
-            parse(child, obj);
-        }
+
+    }
+    el.ish = obj;
+    const children = Array.from(el.children);
+    for(const child of children){
+        const objToPass = child.hasAttribute('itemscope') ? {} : obj;
+        parse(child, objToPass);
     }
 }
