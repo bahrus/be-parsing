@@ -114,9 +114,8 @@ Let me point out the use of the "be-parsing" attribute adorning the template ele
 
 What this does:
 
-1. Goes through all the child elements to parse, looking for microdata attributes.  
-2. Adds a deep mutation observer, but ignores elements inside an itemscope sub-child
-3.  Assigns value to "ish" property of adorned element.
+1. Goes through all the child elements (starting from the parent of the adorned element) to parse, looking for microdata attributes.  
+2.  Assigns value to "ish" property of adorned element.
 
 So the cat "option" would be assigned the following value:
 
