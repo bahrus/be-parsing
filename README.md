@@ -13,9 +13,11 @@ Since customizable dropdowns can display a richer user interface, it is quite li
 
 We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates.  [Yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so until the platform suggests / implements a better alternative, 
 
-So what this could look like is.  Let me point out the use of the "be-parsing" attribute adorning the template element at the end.  This less than obvious markup ensures:
+So what this could look like is.  
 
-1.  The parsing process starts after the relevant HTML has all finished streaming, and
+Let me point out the use of the "be-parsing" attribute adorning the template element at the end.  This less than obvious markup ensures:
+
+1.  The parsing process starts *after* the relevant HTML has all finished streaming, and
 2.  Provides a way to signal that a new HTML fragment has been downloaded in the case that the options may be dynamic (for example depending on other selects) without having to standardize on an event name.
 
 ```html
