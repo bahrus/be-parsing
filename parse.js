@@ -52,8 +52,26 @@ export function parse(el, obj = {}){
     }
     el.ish = obj;
     const children = Array.from(el.children);
-    for(const child of children){
+    const isItemScoped = el.hasAttribute('itemscope');
+    /** @type {{[key: string] : any[]} | undefined} */
+    let itemscopeMap = undefined;
+    if(isItemScoped){
+        itemscopeMap = {};
+    }
+    for(const child of children){ 
+        
         const objToPass = child.hasAttribute('itemscope') ? {} : obj;
         parse(child, objToPass);
+        const isItemScopeAndChildHasBothItempropAndItemscope = itemscopeMap && child.hasAttribute('itemprop') && child.hasAttribute('itemscope');
+        if(isItemScopeAndChildHasBothItempropAndItemscope){
+            const itemprops = child.getAttribute('itemprop').split(" ").filter(x => x);
+            for(const itemprop of itemprops){
+                if(!itemscopeMap[itemprop]) itemscopeMap[itemprop] = [];
+                itemscopeMap[itemprop].push(objToPass);
+            }
+        }
+    }
+    if(itemscopeMap){
+        el.ism = itemscopeMap;
     }
 }
