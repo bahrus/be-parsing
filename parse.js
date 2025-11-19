@@ -1,4 +1,5 @@
 import {upShadowSearch} from 'mount-observer/upShadowSearch.js';
+import {stdVal} from 'trans-render/asmr/stdVal.js';
 
 /** @import {Actions, PAP, AllProps, AP, BAP, ItemPropMap} from './ts-refs/be-parsing/types' */;
 
@@ -11,7 +12,7 @@ const parsedItempropmaps = new WeakMap();
 export function parse(el, obj = {}){
     const itemprop = el.getAttribute('itemprop');
     if(itemprop){
-        obj[itemprop] = el.textContent; //TODO full logic
+        obj[itemprop] = stdVal(el); //TODO full logic
     }
     const itempropmap = el.getAttribute('itempropmap');
     if(itempropmap){
