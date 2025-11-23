@@ -140,6 +140,14 @@ which yields:
 > [!NOTE]
 >  Editing JSON as shown above is error-prone.  To enable JSON syntax highlighting, consider installing this [vs-code plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is using vscode.  
 
+> [!NOTE]
+> Even better, you can edit a *.mjs/*.mts file, and benefit from TypeScript, and use a combination of
+> 1.  A [web server](https://github.com/bahrus/spa-ssi) that translates such files into  JSON on the fly as it serves it.
+> 2.  A [build node process](https://github.com/bahrus/majestic-build) that generates the json file
+> 
+> Both utilities are utilized in this package.
+
+
 What this does:
 
 1. Goes through all the child elements (starting from the parent of the adorned element) to parse, looking for microdata attributes.  
