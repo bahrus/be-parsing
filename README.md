@@ -10,14 +10,10 @@ I find myself often having to do lookups from the value (always a string) to the
 
 Since customizable dropdowns can display a richer user interface, it is quite likely we will see more of the data fields that are relevant to the dropdown. This provides ample opportunity to embed the data used to generate the list of options in a way that can be easily reverse engineered from the HTML markup.
 
-We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates.  [Yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so until the platform suggests / implements a better alternative, 
+We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates.  [Yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so until the platform suggests / implements a better alternative, we're gonna go with it, without feeling a single twinge of guilt.
 
-So what this could look like is.  
+So what this could look like is:  
 
-Let me point out the use of the "be-parsing" attribute adorning the template element at the end.  This less than obvious markup ensures:
-
-1.  The parsing process starts *after* the relevant HTML has all finished streaming, and
-2.  Provides a way to signal that a new HTML fragment has been downloaded in the case that the options may be dynamic (for example depending on other selects) without having to standardize on an event name.
 
 ```html
 <script type=itempropmap id=animal-map>
@@ -108,8 +104,39 @@ Let me point out the use of the "be-parsing" attribute adorning the template ele
 </select>
 ```
 
+You can then access the selected item's full object via:
+
+```JavaScript
+oSelect.selectedOptions[0].ishm
+```
+
+which yields:  
+
+```JSON
+{
+    "obj": {
+        "animal": "\n                🐱\n                Cat\n            ",
+        "taxonomy": {
+            "Kingdom": "Animalia",
+            "Phylum": "Chordata",
+            "Class": "Mammalia",
+            "Order": "Carnivora",
+            "Family": "Felidae",
+            "Genus": "Felis",
+            "Species": "F. catus"
+        },
+        "species": "Felis catus",
+        "totalCount": 600000000,
+        "key": "cat",
+        "emoji": "🐱",
+        "displayName": "Cat"
+    },
+    "itemscopeMap": {}
+}
+```
+
 > [!NOTE]
->  Editing JSON as shown above is error-prone.  To enable JSON syntax highlighting, consider installing this [vs-code plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is using vscode.  Plans for a Ziad plugin are being contemplated [TODO]
+>  Editing JSON as shown above is error-prone.  To enable JSON syntax highlighting, consider installing this [vs-code plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is using vscode.  
 
 What this does:
 
