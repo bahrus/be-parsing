@@ -15,31 +15,31 @@ class BeParsing extends BE {
      * @type {BEConfig<BAP, Actions & IEnhancement>}
      */
     static config = {
-        propDefaults: {
-            nudges: true,
-        },
-        propInfo: {
-            ...propInfo,
-        },
-        compacts: {
-            //when_nudges_changes_call_do: 0,
-        }
+        // propDefaults: {
+        //     nudges: true,
+        // },
+        // propInfo: {
+        //     ...propInfo,
+        // },
+        // compacts: {
+        //     //when_nudges_changes_call_do: 0,
+        // }
     }
 
-    /**
-     * 
-     * @param {BAP} self 
-     */
-    async do(self){
-        const {enhancedElement, nudges} = self;
-        const itemScope = enhancedElement.closest('[itemscope]');
-        if(itemScope === null) throw 404;
-        if(nudges){
-            const {nudge} = await import('trans-render/lib/nudge.js');
-            nudge(itemScope);
-        }
-        parse(itemScope, {});
-    }
+    // /**
+    //  * 
+    //  * @param {BAP} self 
+    //  */
+    // async do(self){
+    //     const {enhancedElement, nudges} = self;
+    //     const itemScope = enhancedElement.closest('[itemscope]');
+    //     if(itemScope === null) throw 404;
+    //     if(nudges){
+    //         const {nudge} = await import('trans-render/lib/nudge.js');
+    //         nudge(itemScope);
+    //     }
+    //     parse(itemScope, {});
+    // }
 }
 await BeParsing.bootUp();
 export { BeParsing }
