@@ -1,13 +1,12 @@
 # be-parsing
 
-Parse html and attach the parsed data to the DOM element
+Lazy parse html on demand.
 
 With customizable dropdowns, it is worth taking a look at how to "customize" managing the data that drives the dropdown options.
 
 I've always found it kind of annoying that the option tag only supports value and text.  
 
-I find myself often having to do lookups from the value (always a string) to the item that corresponded to that option, 
-because it contains much additional useful information.
+I find myself often having to do lookups from the value (always a string) to the item that corresponded to that option (often the property that corresponds to the value being a number), because it contains much additional useful information.
 
 Since customizable dropdowns can display a richer user interface, it is quite likely we will see more of the data fields that are relevant to the dropdown. This provides ample opportunity to embed the data used to generate the list of options in a way that can be easily reverse engineered from the HTML markup.
 
