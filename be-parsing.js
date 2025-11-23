@@ -2,6 +2,7 @@
 import { propInfo} from 'be-enhanced/cc.js';
 import { BE } from 'be-enhanced/BE.js';
 import {parse} from './parse.js';
+import 'mount-observer/refid/ism.js';
 /** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
 /** @import {Actions, PAP, AllProps, AP, BAP} from './ts-refs/be-parsing/types' */;
 
@@ -21,7 +22,7 @@ class BeParsing extends BE {
             ...propInfo,
         },
         compacts: {
-            when_nudges_changes_call_do: 0,
+            //when_nudges_changes_call_do: 0,
         }
     }
 
