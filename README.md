@@ -107,7 +107,7 @@ So what this could look like is:
 You can then access the selected item's full object via:
 
 ```JavaScript
-oSelect.selectedOptions[0].ishm
+oSelect.selectedOptions[0].ism
 ```
 
 which yields:  
@@ -134,6 +134,8 @@ which yields:
     "itemscopeMap": {}
 }
 ```
+
+"ism" stands for *i*tem*s*cope *m*ap.
 
 > [!NOTE]
 >  Editing JSON as shown above is error-prone.  To enable JSON syntax highlighting, consider installing this [vs-code plugin](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is using vscode.  
