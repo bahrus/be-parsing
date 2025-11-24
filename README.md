@@ -10,7 +10,7 @@ I find myself often having to do lookups from the value (always a string) to the
 
 Since customizable dropdowns can display a richer user interface, it is quite likely we will see more of the data fields that are relevant to the dropdown. This provides ample opportunity to embed the data used to generate the list of options in a way that can be easily reverse engineered from the HTML markup.
 
-We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates.  [Yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so until the platform suggests / implements a better alternative, we're gonna go with it, without feeling a single twinge of guilt.
+We solve this by tapping into microdata, and extending that long neglected standard, with some much needed updates.  [Yours truly has proposed these very extensions](https://github.com/WICG/webcomponents/issues/1013), so until the platform suggests / implements a better alternative, we're gonna go with it, without feeling a single pang of guilt.
 
 So what this could look like is:  
 
