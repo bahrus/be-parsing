@@ -114,7 +114,7 @@ which yields:
 
 ```JSON
 {
-    "obj": {
+    "scope": {
         "animal": "\n                🐱\n                Cat\n            ",
         "taxonomy": {
             "Kingdom": "Animalia",
@@ -131,7 +131,7 @@ which yields:
         "emoji": "🐱",
         "displayName": "Cat"
     },
-    "itemscopeMap": {}
+    "scopedLists": {}
 }
 ```
 

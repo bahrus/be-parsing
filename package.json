@@ -38,11 +38,11 @@
   "dependencies": {
     "be-enhanced": "0.0.189",
     "be-hive": "0.0.267",
-    "mount-observer": "0.0.108",
+    "mount-observer": "0.0.110",
     "trans-render": "0.0.960"
   },
   "devDependencies": {
-    "@playwright/test": "1.56.1",
+    "@playwright/test": "1.57.0",
     "spa-ssi": "0.0.25"
   }
 }
