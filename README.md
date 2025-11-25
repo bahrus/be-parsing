@@ -145,7 +145,7 @@ which yields:
 > 1.  A [web server](https://github.com/bahrus/spa-ssi) that translates such files into  JSON on the fly as it serves it.
 > 2.  A [build node process](https://github.com/bahrus/majestic-build) that generates the json file
 > 
-> Both utilities are utilized in this package.
+> Both utilities are used in this package.
 
 
 What this does:
